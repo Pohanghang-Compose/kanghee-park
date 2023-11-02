@@ -3,7 +3,6 @@ package com.example.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
@@ -26,11 +26,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -45,7 +49,6 @@ class MainActivity : ComponentActivity() {
                     ProfileCard()
                 }
             }
-
         }
     }
 
@@ -64,9 +67,9 @@ class MainActivity : ComponentActivity() {
             ProfileImage()
             Nickname("Chun Bae")
             Grade()
-            divider()
+            DividerField()
             Mbti()
-            divider()
+            DividerField()
             Spacer(modifier = Modifier.height(250.dp))
             CardBottom()
         }
@@ -94,7 +97,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun divider() {
+    private fun DividerField() {
         Divider(
             color = Color(0xfff5cb36),
             thickness = 2.dp,
@@ -185,12 +188,18 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun ProfileImage() {
-        Image(
-            painter = painterResource(id = R.drawable.chunbae),
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data("https://archeage.xlgames.com/www/attachments/8a948b8385c779ae01860cf2e6af0070")
+                .crossfade(true)
+                .build(),
+            placeholder = painterResource(id = R.drawable.chunbae),
             contentDescription = "Profile",
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(170.dp)
                 .padding(20.dp)
+                .clip(CircleShape)
         )
     }
 
