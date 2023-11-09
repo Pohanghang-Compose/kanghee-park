@@ -331,7 +331,7 @@ class MainActivity : ComponentActivity() {
                 pressedElevation = 0.dp
             )
         ) {
-            Text(text = Screen.FriendList.name)
+            Text(text = Screen.Profile.name)
         }
     }
 
