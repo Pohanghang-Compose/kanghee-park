@@ -1,4 +1,4 @@
-package com.example.compose
+package com.example.compose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.compose.R
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : ComponentActivity() {
