@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -81,7 +82,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 CardTitle()
                 ProfileImage()
-                Nickname("Chun Bae")
+                Nickname(stringResource(id = R.string.main_name_defalut))
                 Grade()
                 DividerField()
                 Mbti()
@@ -97,7 +98,7 @@ class MainActivity : ComponentActivity() {
     private fun ButtonToFriendList(navController: NavHostController) {
         Button(
             onClick = {
-                navController.navigate("friendList")
+                navController.navigate(Screen.FriendList.name)
             },
             colors = ButtonDefaults
                 .buttonColors(
@@ -123,10 +124,10 @@ class MainActivity : ComponentActivity() {
             Icon(
                 modifier = Modifier.size(40.dp),
                 imageVector = Icons.Default.ThumbUp,
-                contentDescription = "Icon"
+                contentDescription = stringResource(id = R.string.icon_description)
             )
             Text(
-                text = "UNIVERSAL GUARDIANS NETWORK",
+                text = stringResource(id = R.string.main_card_agency),
                 fontWeight = FontWeight.Bold
             )
         }
@@ -167,7 +168,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun GradeTitle() {
         Text(
-            text = "Grade",
+            text = stringResource(id = R.string.main_grade_title),
             color = Color(0xff635c51),
             modifier = Modifier.padding(start = 130.dp),
             textAlign = TextAlign.Center,
@@ -182,7 +183,7 @@ class MainActivity : ComponentActivity() {
                 .fillMaxWidth()
         ) {
             MbtiTitle()
-            MbtiField("CUTE")
+            MbtiField(stringResource(id = R.string.main_mbti_defalut))
         }
     }
 
@@ -200,7 +201,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun MbtiTitle() {
         Text(
-            text = "MBTI",
+            text = stringResource(id = R.string.main_mbti_title),
             color = Color(0xff635c51),
             modifier = Modifier.padding(start = 130.dp),
             textAlign = TextAlign.Center,
@@ -211,7 +212,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun CardTitle() {
         Text(
-            text = "IDENTIFICATION CARD",
+            text = stringResource(id = R.string.main_card_title),
             color = Color(0xffffffff),
             modifier = Modifier
                 .fillMaxWidth()
@@ -230,7 +231,7 @@ class MainActivity : ComponentActivity() {
                 .crossfade(true)
                 .build(),
             placeholder = painterResource(id = R.drawable.chunbae),
-            contentDescription = "Profile",
+            contentDescription = stringResource(id = R.string.profile_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(170.dp)
@@ -329,7 +330,7 @@ class MainActivity : ComponentActivity() {
                 pressedElevation = 0.dp
             )
         ) {
-            Text(text = "Profile List")
+            Text(text = Screen.FriendList.name)
         }
     }
 
@@ -353,7 +354,7 @@ class MainActivity : ComponentActivity() {
                         .data(student.image)
                         .crossfade(true)
                         .build(),
-                    contentDescription = "Profile",
+                    contentDescription = stringResource(id = R.string.profile_description),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .size(80.dp)
@@ -361,8 +362,14 @@ class MainActivity : ComponentActivity() {
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
-                    Text(text = "학번: ${student.id}", fontSize = 18.sp)
-                    Text(text = "이름: ${student.name}", fontSize = 18.sp)
+                    Text(
+                        text = "${stringResource(id = R.string.friendlist_card_id)}: ${student.id}",
+                        fontSize = 18.sp
+                    )
+                    Text(
+                        text = "${stringResource(id = R.string.friendlist_card_name)}: ${student.name}",
+                        fontSize = 18.sp
+                    )
                 }
             }
         }
