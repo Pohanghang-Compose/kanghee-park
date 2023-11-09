@@ -34,6 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -76,7 +77,7 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()
                     .padding(20.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(color = Color(0xffededed)),
+                    .background(color = colorResource(id = R.color.pohang_gray)),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -102,7 +103,7 @@ class MainActivity : ComponentActivity() {
             },
             colors = ButtonDefaults
                 .buttonColors(
-                    Color(0xfff5cb36),
+                    colorResource(R.color.pohang_yellow),
                     contentColor = Color.White
                 ),
             elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp)
@@ -117,7 +118,7 @@ class MainActivity : ComponentActivity() {
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xfff5cb36)),
+                .background(colorResource(R.color.pohang_yellow)),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -136,7 +137,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun DividerField() {
         Divider(
-            color = Color(0xfff5cb36),
+            color = colorResource(R.color.pohang_yellow),
             thickness = 2.dp,
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 5.dp, bottom = 5.dp)
         )
@@ -158,7 +159,7 @@ class MainActivity : ComponentActivity() {
     private fun GradeField(grade: Int) {
         Text(
             text = "$grade",
-            color = Color(0xff635c51),
+            color = colorResource(id = R.color.pohang_ash_brown),
             modifier = Modifier.padding(start = 50.dp),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -169,7 +170,7 @@ class MainActivity : ComponentActivity() {
     private fun GradeTitle() {
         Text(
             text = stringResource(id = R.string.main_grade_title),
-            color = Color(0xff635c51),
+            color = colorResource(id = R.color.pohang_ash_brown),
             modifier = Modifier.padding(start = 130.dp),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -191,7 +192,7 @@ class MainActivity : ComponentActivity() {
     private fun MbtiField(club: String) {
         Text(
             text = club,
-            color = Color(0xff635c51),
+            color = colorResource(id = R.color.pohang_ash_brown),
             modifier = Modifier.padding(start = 50.dp),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -202,7 +203,7 @@ class MainActivity : ComponentActivity() {
     private fun MbtiTitle() {
         Text(
             text = stringResource(id = R.string.main_mbti_title),
-            color = Color(0xff635c51),
+            color = colorResource(id = R.color.pohang_ash_brown),
             modifier = Modifier.padding(start = 130.dp),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -213,10 +214,10 @@ class MainActivity : ComponentActivity() {
     private fun CardTitle() {
         Text(
             text = stringResource(id = R.string.main_card_title),
-            color = Color(0xffffffff),
+            color = Color.White,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = Color(0xfff5cb36))
+                .background(color = colorResource(R.color.pohang_yellow))
                 .padding(top = 16.dp, bottom = 16.dp),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -244,7 +245,7 @@ class MainActivity : ComponentActivity() {
     private fun Nickname(name: String) {
         Text(
             text = name,
-            color = Color(0xff635c51),
+            color = colorResource(id = R.color.pohang_ash_brown),
             modifier = Modifier
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
@@ -322,7 +323,7 @@ class MainActivity : ComponentActivity() {
             },
             colors = ButtonDefaults
                 .buttonColors(
-                    Color(0xfff5cb36),
+                    colorResource(R.color.pohang_yellow),
                     contentColor = Color.White
                 ),
             elevation = ButtonDefaults.elevation(
@@ -339,7 +340,7 @@ class MainActivity : ComponentActivity() {
         Card(
             Modifier
                 .padding(12.dp)
-                .border(width = 4.dp, color = Color(0xfff5cb36))
+                .border(width = 4.dp, color = colorResource(R.color.pohang_yellow))
                 .fillMaxWidth()
                 .height(100.dp)
         ) {
