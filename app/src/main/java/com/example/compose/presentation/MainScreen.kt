@@ -64,7 +64,8 @@ fun MainScreen(navController: NavHostController) {
             Mbti()
             DividerField()
             ButtonToFriendList(navController)
-            Spacer(modifier = Modifier.height(200.dp))
+            ButtonToSurvey(navController)
+            Spacer(modifier = Modifier.height(150.dp))
             CardBottom()
         }
     }
@@ -84,6 +85,24 @@ private fun ButtonToFriendList(navController: NavHostController) {
         elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp)
     ) {
         Text(text = "Friend List")
+
+    }
+}
+
+@Composable
+private fun ButtonToSurvey(navController: NavHostController) {
+    Button(
+        onClick = {
+            navController.navigate(Screen.Survey.name)
+        },
+        colors = ButtonDefaults
+            .buttonColors(
+                PohangYellow,
+                contentColor = Color.White
+            ),
+        elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp)
+    ) {
+        Text(text = "Survey")
 
     }
 }
