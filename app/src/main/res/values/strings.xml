@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">compose</string>
+    <!--content description-->
+    <string name="profile_description">Profile</string>
+    <string name="icon_description">Icon</string>
+    
+    <!-- main -->
+    <string name="main_name_defalut">Chun Bae</string>
+    <string name="main_mbti_defalut">CUTE</string>
+    <string name="main_card_title">IDENTIFICATION CARD</string>
+    <string name="main_card_agency">UNIVERSAL GUARDIANS NETWORK</string>
+    <string name="main_grade_title">Grade</string>
+    <string name="main_mbti_title">MBTI</string>
+
+    <!-- FriendList -->
+    <string name="friendlist_card_id">학번</string>
+    <string name="friendlist_card_name">이름</string>
+    
 </resources>
