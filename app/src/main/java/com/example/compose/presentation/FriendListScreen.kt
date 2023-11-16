@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
@@ -34,6 +35,39 @@ import com.example.compose.data.Screen
 import com.example.compose.data.Student
 import com.example.compose.ui.theme.PohangYellow
 
+private val friendList = listOf(
+    Student(
+        0,
+        "박강희",
+        "https://archeage.xlgames.com/www/attachments/8a948b8385c779ae01860cf2e6af0070"
+    ),
+    Student(
+        1,
+        "박동민",
+        "https://previews.123rf.com/images/piyato/piyato1204/piyato120400073/13122103-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%84%EB%9E%80-%EC%B4%88%EB%B0%A5.jpg"
+    ),
+    Student(
+        2,
+        "최유리",
+        "https://image.chukouplus.com/upload/C_2687/file/20221224/5dbf580081511e34346c8422852e236c.jpg?x-oss-process=image/format,webp,image/resize,m_pad,h_450,w_600,color_FFFFFF"
+    ),
+    Student(
+        3,
+        "조관희",
+        "https://pbs.twimg.com/media/EXfa87lU4AEG3rL.png"
+    ),
+    Student(
+        4,
+        "이태희",
+        "https://onimg.nate.com/orgImg/at/2010/07/28/382320(0)-340317_81943.jpg"
+    ),
+    Student(
+        5,
+        "이삭",
+        "https://cdn.ikpnews.net/news/photo/202208/48106_33583_5048.jpg"
+    )
+)
+
 @Composable
 fun FriendListScreen(navController: NavHostController) {
     Surface(
@@ -46,49 +80,8 @@ fun FriendListScreen(navController: NavHostController) {
         ) {
             ButtonToProfile(navController)
             LazyColumn() {
-                item {
-                    FriendListItem(
-                        Student(
-                            0,
-                            "박강희",
-                            "https://archeage.xlgames.com/www/attachments/8a948b8385c779ae01860cf2e6af0070"
-                        )
-                    )
-                    FriendListItem(
-                        Student(
-                            1,
-                            "박동민",
-                            "https://previews.123rf.com/images/piyato/piyato1204/piyato120400073/13122103-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%84%EB%9E%80-%EC%B4%88%EB%B0%A5.jpg"
-                        )
-                    )
-                    FriendListItem(
-                        Student(
-                            2,
-                            "최유리",
-                            "https://image.chukouplus.com/upload/C_2687/file/20221224/5dbf580081511e34346c8422852e236c.jpg?x-oss-process=image/format,webp,image/resize,m_pad,h_450,w_600,color_FFFFFF"
-                        )
-                    )
-                    FriendListItem(
-                        Student(
-                            3,
-                            "조관희",
-                            "https://pbs.twimg.com/media/EXfa87lU4AEG3rL.png"
-                        )
-                    )
-                    FriendListItem(
-                        Student(
-                            4,
-                            "이태희",
-                            "https://onimg.nate.com/orgImg/at/2010/07/28/382320(0)-340317_81943.jpg"
-                        )
-                    )
-                    FriendListItem(
-                        Student(
-                            5,
-                            "이삭",
-                            "https://cdn.ikpnews.net/news/photo/202208/48106_33583_5048.jpg"
-                        )
-                    )
+                itemsIndexed(friendList) { _, student ->
+                    FriendListItem(student = student)
                 }
             }
         }
