@@ -16,9 +16,10 @@ class MainActivity : ComponentActivity() {
             ComposeTheme {
                 val navController = rememberNavController()
 
-                NavHost(navController = navController, startDestination = Screen.Profile.name) {
+                NavHost(navController = navController, startDestination = Screen.Survey.name) {
                     composable(Screen.Profile.name) { MainScreen(navController) }
                     composable(Screen.FriendList.name) { FriendListScreen(navController) }
+                    composable(Screen.Survey.name){ SurveyScreen(navController)}
                 }
             }
         }
